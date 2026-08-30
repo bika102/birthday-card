@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0e0b0b;
+    color: #f5eee7;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* OPENING */
+
+#opening {
+    background:
+        radial-gradient(circle at 50% 40%, #3b2026 0%, #160f11 45%, #080707 100%);
+    text-align: center;
+    flex-direction: column;
+}
+
+.small-text {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: .65;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 15vw, 90px);
+    font-weight: 400;
+    line-height: .9;
+}
+
+.open-card {
+    margin-top: 45px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.05);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.open-card:hover {
+    background: rgba(255,255,255,.12);
+    transform: translateY(-2px);
+}
+
+/* CONTENT */
+
+.content {
+    max-width: 850px;
+    width: 100%;
+    margin: auto;
+}
+
+.section {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.eyebrow {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: .5;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 12vw, 82px);
+    font-weight: 400;
+    line-height: .95;
+    margin-bottom: 30px;
+}
+
+.message {
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 300;
+    max-width: 600px;
+    opacity: .82;
+}
+
+/* MEMORY */
+
+.memory {
+    width: 100%;
+    max-width: 650px;
+    margin: 30px auto;
+}
+
+.photo-placeholder {
+    aspect-ratio: 4 / 5;
+    background:
+        linear-gradient(135deg, #332527, #171213);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: rgba(255,255,255,.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.caption {
+    padding-top: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    opacity: .85;
+}
+
+/* LOVE LIST */
+
+.love-list {
+    list-style: none;
+    width: 100%;
+    max-width: 600px;
+}
+
+.love-list li {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding: 23px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+}
+
+.love-list li:last-child {
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+/* LETTER */
+
+.letter {
+    background: #eee4d8;
+    color: #21191a;
+    padding: 45px 30px;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+
+.letter h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.letter p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    line-height: 1.7;
+}
+
+/* FINAL */
+
+#final {
+    text-align: center;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 50% 50%, #3b2026, #090707 65%);
+}
+
+.heart {
+    font-size: 35px;
+    margin-top: 35px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* FADE */
+
+.fade {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+
+<section id="opening" class="screen">
+
+    <div class="small-text">A little something for you</div>
+
+    <h1>Happy<br>Birthday ♡</h1>
+
+    <button class="open-card" onclick="openCard()">
+        Open your card
+    </button>
+
+</section>
+
+
+<!-- MAIN WEBSITE -->
+
+<main id="main" class="hidden">
+
+    <!-- INTRO -->
+
+    <section class="section">
+        <div class="content fade">
+
+            <div class="eyebrow">For you</div>
+
+            <div class="title">
+                Happy birthday,<br>
+                my love.
+            </div>
+
+            <p class="message">
+                Today is about you.
+                But I couldn't let the day pass without making
+                something that reminds you just how special you are to me.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- MEMORY -->
+
+    <section class="section">
+
+        <div class="content">
+
+            <div class="eyebrow">One of my favorite things</div>
+
+            <div class="title">
+                Us.
+            </div>
+
+            <div class="memory">
+
+                <!-- Replace this later with your photo -->
+
+                <div class="photo-placeholder">
+                    Your photo goes here
+                </div>
+
+                <div class="caption">
+                    One memory I'll always keep.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- THINGS I LOVE -->
+
+    <section class="section">
+
+        <div class="content">
+
+            <div class="eyebrow">Things I love</div>
+
+            <div class="title">
+                About you.
+            </div>
+
+            <ul class="love-list">
+
+                <li>The way you make ordinary moments special.</li>
+
+                <li>Your little habits that you probably don't notice.</li>
+
+                <li>The way you understand me.</li>
+
+                <li>The person you are when nobody is watching.</li>
+
+                <li>And, honestly... just you.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="section">
+
+        <div class="content">
+
+            <div class="eyebrow">A letter</div>
+
+            <div class="letter">
+
+                <h2>Dear you,</h2>
+
+                <p>
+                    I don't think I'll ever be able to put everything
+                    I feel for you into one little website.
+                    But I wanted to try.
+                    <br><br>
+                    Thank you for every memory, every conversation,
+                    every stupid joke, every quiet moment,
+                    and everything in between.
+                    <br><br>
+                    I hope this next year of your life brings you
+                    everything you deserve.
+                    And I hope I get to be there for a lot of it.
+                    <br><br>
+                    Happy birthday.
+                    <br><br>
+                    I love you. ♡
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section id="final" class="screen">
+
+        <div class="eyebrow">One last thing</div>
+
+        <div class="title">
+            I'm really<br>
+            glad it's you.
+        </div>
+
+        <p class="message">
+            Happy birthday, my love.
+        </p>
+
+        <div class="heart">♡</div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+function openCard() {
+
+    document.getElementById("opening").style.display = "none";
+
+    document.getElementById("main").classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
